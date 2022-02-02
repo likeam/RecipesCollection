@@ -1,0 +1,20 @@
+{
+  "name": "recipescollection",
+  "version": "1.0.0",
+  "description": "Recipes Collections",
+  "default": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/likeam/RecipesCollection.git"
+  },
+  "author": "Abdul Rehman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/likeam/RecipesCollection/issues"
+  },
+  "homepage": "https://github.com/likeam/RecipesCollection#readme"
+}
