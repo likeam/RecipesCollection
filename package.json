@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/likeam/RecipesCollection/issues"
   },
-  "homepage": "https://github.com/likeam/RecipesCollection#readme"
+  "homepage": "https://github.com/likeam/RecipesCollection#readme",
+  "main": "index.js",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.2.1",
+    "parcel": "^2.2.1",
+    "sass": "^1.49.7"
+  }
 }
