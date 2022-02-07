@@ -520,7 +520,8 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"aenu9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _webImmediateJs = require("core-js/modules/web.immediate.js");
+var _webImmediateJs = require("core-js/modules/web.immediate.js"); // window.addEventListener('hashchange', controlRecipe);
+ // window.addEventListener('load', controlRecipe);
 var _model = require("./model");
 var _recipeViews = require("./views/recipeViews");
 var _recipeViewsDefault = parcelHelpers.interopDefault(_recipeViews);
@@ -537,7 +538,7 @@ const timeout = function(s) {
 const controlRecipe = async function() {
     try {
         const id = window.location.hash.slice(1);
-        recipeView.rendeSpineer();
+        _recipeViewsDefault.default.rendeSpineer();
         // 1) Loading Recipe
         await _model.loadRecipe(id);
         // 2) RENDERING RECIPE
@@ -546,8 +547,11 @@ const controlRecipe = async function() {
         alert(err);
     }
 };
-window.addEventListener('hashchange', controlRecipe);
-window.addEventListener('load', controlRecipe);
+[
+    'hashchange',
+    'load'
+].forEach((ev)=>window.addEventListener(ev, controlRecipe)
+);
 
 },{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./model":"Y4A21","./views/recipeViews":"fR5Tr"}],"49tUX":[function(require,module,exports) {
 var $ = require('../internals/export');
@@ -2264,7 +2268,7 @@ class RecipeView {
     #data;
     render(data) {
         this.#data = data;
-        const markup = this._generateMarkup();
+        const markup = this.#generateMarkup();
         // this.#clear();
         recipeContainer.insertAdjacentHTML('afterbegin', markup);
     }
@@ -2281,7 +2285,7 @@ class RecipeView {
         parentEl.innerHTML = '';
         parentEl.insertAdjacentHTML('afterbegin', markup);
     };
-    _generateMarkup() {
+     #generateMarkup() {
         return `
             <figure class="recipe__fig">
                 <img src="${recipe.image}" alt="${this.#data.title}"" class="recipe__img" />
@@ -2365,7 +2369,7 @@ class RecipeView {
 }
 exports.default = new RecipeView();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","url:../../img/icons.svg":"loVOp"}],"loVOp":[function(require,module,exports) {
+},{"url:../../img/icons.svg":"loVOp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"loVOp":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('hWUTQ') + "icons.dfd7a6db.svg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {

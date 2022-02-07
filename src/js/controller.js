@@ -32,7 +32,7 @@ const controlRecipe = async function() {
 
             if (!id) retun;
 
-            recipeView.rendeSpineer();
+            recipeViews.rendeSpineer();
             // 1) Loading Recipe
             await model.loadRecipe(id);
             
@@ -50,6 +50,7 @@ const controlRecipe = async function() {
         alert(err);
     }
 };
+['hashchange', 'load'].forEach(ev => window.addEventListener(ev, controlRecipe));
 
-window.addEventListener('hashchange', controlRecipe);
-window.addEventListener('load', controlRecipe);
+// window.addEventListener('hashchange', controlRecipe);
+// window.addEventListener('load', controlRecipe);

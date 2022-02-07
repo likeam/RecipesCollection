@@ -6,7 +6,7 @@ import icons from 'url:../../img/icons.svg'; // Parcel 2
     #data;
     render(data){
         this.#data = data;
-        const markup = this._generateMarkup();
+        const markup = this.#generateMarkup();
         // this.#clear();
         recipeContainer.insertAdjacentHTML('afterbegin', markup);
     }
@@ -25,7 +25,7 @@ import icons from 'url:../../img/icons.svg'; // Parcel 2
         parentEl.innerHTML = '';
         parentEl.insertAdjacentHTML('afterbegin', markup);
     };
-    _generateMarkup(){
+    #generateMarkup(){
         return `
             <figure class="recipe__fig">
                 <img src="${recipe.image}" alt="${this.#data.title}"" class="recipe__img" />
